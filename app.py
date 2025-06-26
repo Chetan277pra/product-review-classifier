@@ -38,4 +38,8 @@ if st.button("Analyze Sentiment"):
         cleaned = preprocess_text(user_input)
         vectorized = vectorizer.transform([cleaned])
         prediction = clf.predict(vectorized)[0]
-        st.success(f"✅ **{prediction.capitalize()} Review**")
+        if prediction == 'positive':
+           st.success("✅ **Positive Review**")
+        else:
+           st.error("❌ **Negative Review**")
+
